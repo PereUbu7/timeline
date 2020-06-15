@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timeline test</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .canvas
+            {
+                background-color: beige;
+                height: 100%;
+                padding: 10px;
+            }
+
+            .ruler
+            {
+                background-color:black;
+                height: 2px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .chartArea
+            {
+                display: grid;
+                /* grid-template-columns:  10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+                grid-template-rows: auto auto auto auto auto auto auto; */
+                height:100%;
+                background-color: indianred;
+            }
+
+            .timeSlot
+            {
+                grid-row-start:1;
+                grid-row-end:30;
+                background-color:greenyellow;
+                height: 100%;
+                /* border-style: solid;
+                border-color:olive; */
+            }
+
+            .timeSlot::before
+            {
+                display: block;
+                content: "";
+                position:relative;
+                top: -20px;
+                left: 0;
+                width: 1px;
+                height: 101%;
+                background-color:black;
+            }
+
+            .timeSlot.empty::before
+            {
+                background-color: gray;
+            }
+
+            .task
+            {
+                grid-row-start: 3;
+                grid-column-start: 1;
+                grid-column-end: 6;
+                background-color:khaki;
+            }
+
+            .singleEvent
+            {
+                grid-row-start: 3;
+                grid-column-start: 1;
+                grid-column-end: 1;
+                background-color:mediumslateblue;
+            }
+
+        </style>
+    </head>
+    <body style="height: 500px; margin: 0;">
+        <div class="canvas">
+            Lite text här i
+            <div class="ruler"></div>
+            <div class="chartArea">
+                <div class="timeSlot" style="grid-column-start:1">1</div>
+                <div class="timeSlot" style="grid-column-start:2">2</div>
+                <div class="timeSlot" style="grid-column-start:3">3</div>
+                <div class="timeSlot empty" style="grid-column-start:4">4</div>
+                <div class="timeSlot" style="grid-column-start:5">5</div>
+                <div class="timeSlot" style="grid-column-start:6">6</div>
+                <div class="timeSlot" style="grid-column-start:7">7</div>
+                <div class="timeSlot" style="grid-column-start:8">8</div>
+                <div class="timeSlot" style="grid-column-start:9">9</div>
+                <div class="timeSlot" style="grid-column-start:10">10</div>
+
+                <div class="task"></div>
+                <div class="singleEvent"></div>
+            </div>
+        </div>
+    </body>
+</html>

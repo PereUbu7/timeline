@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timeline test</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 1px solid #ddd;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        .timeline {
+            text-align: center;
+            vertical-align: middle;
+            height: 30px;
+            width: 50px;
+            position: relative;
+        }
+
+        .timeline span {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: gray;
+            display: none;
+        }
+
+        .timeline.has-left:before {
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 20px;
+            background-color: lightgray;
+            opacity: 0.5;
+        }
+
+        .timeline.has-right:after {
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 20px;
+            background-color: lightgray;
+            opacity: 0.5;
+        }
+
+        .timeline.has-left span,
+        .timeline.has-right span {
+            display: inline-block;
+        }
+
+        tr.timeline.top {
+            height: 5px;
+        }
+
+        tr.timeline.top td {
+            border-top: none;
+        }
+
+        tr.timeline.top td.noTop {
+            border-left: none;
+        }
+
+        th.timeline.rowLabel {
+            padding-right: 10px;
+            white-space: nowrap;
+            border-bottom: 1px solid lightgray;
+        }
+
+        th.timeline .axisMeter {
+            position: absolute;
+            left: -3px;
+        }
+
+        .event {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            height: 30px;
+            width: 100%;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .event.planting {
+            background-color: chocolate;
+        }
+
+        .event.seeding {
+            background-color: mediumvioletred;
+        }
+
+        .event.harvestStart {
+            background-color:chartreuse;
+        }
+
+        .timeline.legend {
+            box-sizing: border-box;
+            margin: 20px;
+            width:unset;
+        }
+
+        .timeline.legend .legendItem {
+            float: left;
+            height: 20px;
+            min-width: 40px;
+            border-radius: 5px;
+        }
+
+        .timeline.legend .legendItem.text {
+            margin-right: 15px;
+            margin-left: 5px;
+            text-align: left;
+        }
+
+        .legendItem.planting {
+            background-color: chocolate;
+        }
+
+        .legendItem.seeding {
+            background-color: mediumvioletred;
+        }
+
+        .legendItem.harvestStart {
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timeline legend">
+        <div class="legendItem planting"></div>
+        <div class="legendItem text">Plantering</div>
+        <div class="legendItem seeding"></div>
+        <div class="legendItem text">Sådd</div>
+        <div class="legendItem harvestStart"></div>
+        <div class="legendItem text">Skördestart</div>
+    </div>
+    <table>
+        <tr>
+            <th class="timeline">
+                <div></div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">1</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">2</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">3</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">4</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">5</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">6</div>
+            </th>
+            <th class="timeline">
+                <div class="axisMeter">7</div>
+            </th>
+        </tr>
+        <tr class="timeline top">
+            <td class="noTop"></td>
+            <td></td>
+            <td></td>
+            <td></td>   
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+        <tr>
+        <th class="timeline rowLabel">#1 Broccoli Mumbai</th>
+          <td class="timeline has-right">
+              <div class="event seeding"></div>
+              <span></span>
+          </td>
+          <td class="timeline has-left has-right">
+              <span></span>
+          </td>
+          <td class="timeline has-left">
+            <div class="event planting"></div>
+              <span></span>
+          </td>
+          <td class="timeline">
+              <span></span>
+          </td>
+          <td class="timeline">
+            <span></span>
+        </td>
+        <td class="timeline">
+            <span></span>
+        </td>
+        <td class="timeline">
+            <span></span>
+        </td>
+        </tr>
+      
+        <tr>
+            <th class="timeline rowLabel">#2 Broccoli Mumbai</th>
+          <td class="timeline">
+              <span></span>
+          </td>
+          <td class="timeline has-right">
+              <div class="event seeding"></div>
+              <span></span>
+          </td>
+          <td class="timeline has-right has-left">
+              <span></span>
+          </td>
+          <td class="timeline has-left">
+            <div class="event planting"></div>
+              <span></span>
+          </td>
+          <td class="timeline">
+            <span></span>
+        </td>
+        <td class="timeline">
+            <span></span>
+        </td>
+        <td class="timeline">
+            <span></span>
+        </td>
+        </tr>
+      
+        <tr>
+            <th class="timeline rowLabel">#3 Blomkål Snowy</th>
+          <td class="timeline has-right">
+            <div class="event seeding"></div>
+              <span></span>
+          </td>
+          <td class="timeline has-left has-right">
+              <span></span>
+          </td>
+          <td class="timeline has-left has-right">
+              <span></span>
+          </td>
+          <td class="timeline has-left">
+            <div class="event planting"></div>
+              <span></span>
+          </td>
+          <td class="timeline has-left has-right">
+            <span></span>
+        </td>
+        <td class="timeline has-left has-right">
+            <span></span>
+        </td>
+        <td class="timeline has-left">
+            <div class="event harvestStart"></div>
+            <span></span>
+        </td>
+        </tr>
+      </table>
+</body>
